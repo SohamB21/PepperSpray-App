@@ -10,7 +10,7 @@ const InputHeader = (props: any) => {
       <TextInput
         style={styles.textInput}
         onChangeText={textInput => setSearchText(textInput)} value={searchText}
-        placeholder="Search movie..." placeholderTextColor={'grey'}/>
+        placeholder="Search ..." placeholderTextColor={'grey'}/>
 
       <TouchableOpacity
         style={styles.searchIcon}
