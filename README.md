@@ -1,8 +1,7 @@
 # App Preview
-![Untitled design](https://github.com/SohamB21/TopCorn-MovieApp/assets/105418470/f25fb039-da8c-46ed-99ef-a627c6721c89)
+![Untitled design]
 
-## Watch a Video Preview of TopCorn in action:
-https://www.linkedin.com/posts/soham-banik-b13909237_projects-reactnative-mobileapp-activity-7124490527286202368-6Iuw?utm_source=share&utm_medium=member_desktop
+## Watch a Video Preview of PepperSpray in action:
 
 # Getting Started
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
