@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'left',
     flexDirection: 'column',
+    justifyContent: 'center',
     marginVertical: 14,
     paddingHorizontal: 4,
   },

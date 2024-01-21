@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   inputBox: {
     flexDirection: 'row',
     paddingHorizontal: 10,
-    borderWidth: 1.2,
+    borderWidth: 1,
     borderColor: COLORS.PrimaryText,
     borderRadius: 12,
     alignItems: 'center',
