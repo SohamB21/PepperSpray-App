@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Post from './Post';
-import {
-  FaRegComment,
-  FaRegCaretSquareUp,
-  FaRegHeart,
-  FaShareAlt,
-} from 'react-icons/fa';
 import { COLORS, FONTFAMILY } from '../theme/theme';
 
 const Trending = ({ posts }) => {

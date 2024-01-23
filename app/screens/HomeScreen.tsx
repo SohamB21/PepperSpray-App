@@ -57,22 +57,7 @@ const HomeScreen = ({navigation}: any) => {
         <SearchBar placeholder="Search Cities" />
         <Welcome user={userName} />
         <Trending posts={posts} />
-
-        <Text style={styles.welcomeText}>Welcome to PepperSpray!</Text>
-        <Text style={styles.welcomeText}>Welcome to PepperSpray!</Text>
-        <Text style={styles.welcomeText}>Welcome to PepperSpray!</Text>
-        <Text style={styles.welcomeText}>Welcome to PepperSpray!</Text>
-        <Text style={styles.welcomeText}>Welcome to PepperSpray!</Text>
-        <Text style={styles.welcomeText}>Welcome to PepperSpray!</Text>
-        <Text style={styles.welcomeText}>Welcome to PepperSpray!</Text>
-        <Text style={styles.welcomeText}>Welcome to PepperSpray!</Text>
-        <Text style={styles.welcomeText}>Welcome to PepperSpray!</Text>
-        <Text style={styles.welcomeText}>Welcome to PepperSpray!</Text>
-        <Text style={styles.welcomeText}>Welcome to PepperSpray!</Text>
-        <Text style={styles.welcomeText}>Welcome to PepperSpray!</Text>
-        <Text style={styles.welcomeText}>Welcome to PepperSpray!</Text>
-        <Text style={styles.welcomeText}>Welcome to PepperSpray!</Text>
-        <Text style={styles.welcomeText}>Welcome to PepperSpray!</Text>
+        
       </ScrollView>
     </View>
   );
