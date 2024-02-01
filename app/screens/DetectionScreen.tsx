@@ -1,15 +1,19 @@
 import React from 'react';
-import {View, Text, ScrollView, StyleSheet} from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import { COLORS } from '../theme/theme';
 import Header from '../components/Header';
-import {COLORS} from '../theme/theme';
+// import SearchBar from '../components/SearchBar';
+import Map from '../components/Map';
 
 const DetectionScreen = () => {
   return (
     <View style={styles.container}>
+
       <Header screen="Detection" icon="settings" />
-      <ScrollView contentContainerStyle={styles.contentContainer}>
-        <Text style={styles.welcomeText}>Welcome to Detection!</Text>
-      </ScrollView>
+      {/* <SearchBar placeholder="Search places" /> */}
+      <Map fixedHeight="92%" />  
+      {/* total height - header's height */}
+
     </View>
   );
 };
@@ -19,13 +23,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.Background,
   },
-  contentContainer: {
-    padding: 16,
-  },
-  welcomeText: {
-    color: COLORS.PrimaryText,
-    fontSize: 18,
-    marginTop: 20,
-  },
 });
+
 export default DetectionScreen;

@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import {View, Text, ScrollView, StyleSheet} from 'react-native';
 import Header from '../components/Header';
-import SearchBar from '../components/SearchBar';
+// import SearchBar from '../components/SearchBar';
 import Welcome from '../components/Welcome';
+import Map from '../components/Map';
 import Trending from '../components/Trending';
 
 import {COLORS} from '../theme/theme';
@@ -54,8 +55,9 @@ const HomeScreen = ({navigation}: any) => {
       <Header screen="Home" icon="settings" />
       <ScrollView contentContainerStyle={styles.contentContainer}>
 
-        <SearchBar placeholder="Search Cities" />
+        {/* <SearchBar placeholder="Search places" /> */}
         <Welcome user={userName} />
+        <Map fixedHeight={300} />
         <Trending posts={posts} />
         
       </ScrollView>
