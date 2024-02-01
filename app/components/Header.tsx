@@ -1,25 +1,36 @@
-import React from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  useWindowDimensions,
-} from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, StyleSheet, TouchableOpacity, useWindowDimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-import {COLORS} from '../theme/theme';
+import SettingsPopup from './SettingsPopup'; 
+import { COLORS } from '../theme/theme';
 
-const Header = (props: any) => {
+interface HeaderProps {
+  screen: string;
+  icon: string;
+}
+
+const Header: React.FC<HeaderProps> = (props) => {
   const dimensions = useWindowDimensions();
   const isPortrait = dimensions.height > dimensions.width;
   const headerHeight = isPortrait ? '8%' : '14%';
 
+  const [isSettingsPopupVisible, setSettingsPopupVisible] = useState(false);
+
+  const showSettingsPopup = () => {
+    setSettingsPopupVisible(true);
+  };
+
+  const closeSettingsPopup = () => {
+    setSettingsPopupVisible(false);
+  };
+
   return (
-    <View style={[styles.container, {height: headerHeight}]}>
+    <View style={[styles.container, { height: headerHeight }]}>
       <Text style={styles.headerText}>{props.screen}</Text>
-      <TouchableOpacity style={styles.iconBG} onPress={() => {}}>
+      <TouchableOpacity style={styles.iconBG} onPress={showSettingsPopup}>
         <Icon name={props.icon} size={24} style={styles.iconStyle} />
       </TouchableOpacity>
+      <SettingsPopup isVisible={isSettingsPopupVisible} onClose={closeSettingsPopup} />
     </View>
   );
 };
