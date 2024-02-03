@@ -1,13 +1,14 @@
-import React from 'react';
-import {View, StyleSheet, Text, useWindowDimensions} from 'react-native';
+import React, { useState } from 'react';
+import {View, StyleSheet, Text, useWindowDimensions, Modal} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen';
 import DetectionScreen from '../screens/DetectionScreen';
-import NewPostScreen from '../screens/NewPostScreen';
 import CommunityScreen from '../screens/CommunityScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import Icon from 'react-native-vector-icons/Feather';
 import {COLORS} from '../theme/theme';
+import NewPostModal from '../components/NewPostModal';
+console.log('NewPostModal import:', NewPostModal);
 
 const Tab = createBottomTabNavigator();
 
@@ -16,8 +17,21 @@ const TabNavigator = () => {
   const isPortrait = dimensions.height > dimensions.width;
   const tabBarHeight = isPortrait ? '7%' : '14%';
 
+  const [isNewModalVisible, setIsNewModalVisible] = useState(false);
+
+  const openNewModal = () => {
+    console.log('Opening new modal...');
+    setIsNewModalVisible(true);
+  };
+
+  const closeNewModal = () => {
+    console.log('Closing new modal...');
+    setIsNewModalVisible(false);
+  };
+
+
   return (
-    <Tab.Navigator
+    <><Tab.Navigator
       screenOptions={{
         tabBarHideOnKeyboard: true,
         headerShown: false,
@@ -34,108 +48,112 @@ const TabNavigator = () => {
         component={HomeScreen}
         options={{
           tabBarShowLabel: false,
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({ focused }) => {
             return (
               <View style={styles.tabItem}>
                 <Icon
                   name="home"
                   size={24}
-                  style={[focused ? styles.iconFocused : styles.iconStyle]}
-                />
+                  style={[focused ? styles.iconFocused : styles.iconStyle]} />
                 <Text style={[focused ? styles.textFocused : styles.textStyle]}>
                   Home
                 </Text>
               </View>
             );
           },
-        }}
-      />
+        }} />
 
       <Tab.Screen
         name="Detection"
         component={DetectionScreen}
         options={{
           tabBarShowLabel: false,
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({ focused }) => {
             return (
               <View style={styles.tabItem}>
                 <Icon
                   name="compass"
                   size={24}
-                  style={[focused ? styles.iconFocused : styles.iconStyle]}
-                />
+                  style={[focused ? styles.iconFocused : styles.iconStyle]} />
                 <Text style={[focused ? styles.textFocused : styles.textStyle]}>
                   Detection
                 </Text>
               </View>
             );
           },
-        }}
-      />
+        }} />
       <Tab.Screen
         name="NewPost"
-        component={NewPostScreen}
+        listeners={({ navigation }) => ({
+          tabPress: (event) => {
+            event.preventDefault(); // Prevent default action
+            openNewModal(); // Open modal instead
+          },
+        })}
         options={{
           tabBarShowLabel: false,
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({ focused }) => {
             return (
               <View style={styles.tabItem}>
                 <Icon
                   name="plus-square"
                   size={24}
-                  style={[focused ? styles.iconFocused : styles.iconStyle]}
-                />
+                  style={[focused ? styles.iconFocused : styles.iconStyle]} />
                 <Text style={[focused ? styles.textFocused : styles.textStyle]}>
                   New
                 </Text>
               </View>
             );
           },
-        }}
-      />
+        }} >
+        {({ route, navigation }) => null}
+        </Tab.Screen>
       <Tab.Screen
         name="Community"
         component={CommunityScreen}
         options={{
           tabBarShowLabel: false,
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({ focused }) => {
             return (
               <View style={styles.tabItem}>
                 <Icon
                   name="mail"
                   size={24}
-                  style={[focused ? styles.iconFocused : styles.iconStyle]}
-                />
+                  style={[focused ? styles.iconFocused : styles.iconStyle]} />
                 <Text style={[focused ? styles.textFocused : styles.textStyle]}>
                   Community
                 </Text>
               </View>
             );
           },
-        }}
-      />
+        }} />
       <Tab.Screen
         name="Profile"
         component={ProfileScreen}
         options={{
           tabBarShowLabel: false,
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({ focused }) => {
             return (
               <View style={styles.tabItem}>
                 <Icon
                   name="user"
                   size={24}
-                  style={[focused ? styles.iconFocused : styles.iconStyle]}
-                />
+                  style={[focused ? styles.iconFocused : styles.iconStyle]} />
                 <Text style={[focused ? styles.textFocused : styles.textStyle]}>
                   Profile
                 </Text>
               </View>
             );
           },
-        }}
-      />
+        }} />
     </Tab.Navigator>
+    {isNewModalVisible && (
+        <NewPostModal
+          showNewPostModal={isNewModalVisible}
+          setShowNewPostModal={setIsNewModalVisible}
+        />
+      )}
+    </>
   );
 };
 
