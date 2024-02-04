@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {View, Text, ScrollView, StyleSheet} from 'react-native';
+import {View, Text, ScrollView, StyleSheet, TouchableOpacity} from 'react-native';
+// import { useNavigation } from '@react-navigation/native';
 import Header from '../components/Header';
-// import SearchBar from '../components/SearchBar';
+import SearchBar from '../components/SearchBar';
 import Welcome from '../components/Welcome';
 import Map from '../components/Map';
 import Trending from '../components/Trending';
@@ -10,6 +11,7 @@ import {COLORS} from '../theme/theme';
 
 const HomeScreen = ({navigation}: any) => {
   const [userName, setUserName] = useState('Sharmili');
+  // const navigation = useNavigation();
 
   const posts = [
     {
@@ -49,13 +51,19 @@ const HomeScreen = ({navigation}: any) => {
       title: 'Papa papa papa!',
     },
   ];
+
+  const handleSearchPress = () => {
+    navigation.navigate('DetectionScreen');
+  };
    
   return (
     <View style={styles.container}>
       <Header screen="Home" icon="settings" />
       <ScrollView contentContainerStyle={styles.contentContainer}>
 
-        {/* <SearchBar placeholder="Search places" /> */}
+        <TouchableOpacity onPress={handleSearchPress}>
+          <SearchBar placeholder="Search places" />
+        </TouchableOpacity>
         <Welcome user={userName} />
         <Map fixedHeight={300} />
         <Trending posts={posts} />
@@ -72,12 +80,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     padding: 12,
-  },
-  welcomeText: {
-    color: COLORS.PrimaryText,
-    fontSize: 18,
-    marginTop: 16,
-  },
+  }
 });
 
 export default HomeScreen;

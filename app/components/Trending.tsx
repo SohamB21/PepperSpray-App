@@ -40,14 +40,14 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     alignItems: 'stretch',
-    marginVertical: 10,
+    marginVertical: 12,
   },
   headerRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '100%',
-    marginBottom: 4,
+    marginBottom: 6,
   },
   headerText: {
     color: COLORS.PrimaryText,

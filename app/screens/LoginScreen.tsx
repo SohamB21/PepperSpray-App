@@ -10,8 +10,8 @@ const LoginScreen = ({navigation}) => {
   const [password, setPassword] = useState();
 
   const handleLoginPress = () => {
-    navigation.navigate('Tab');
-    // navigation.replace('Tab');
+    // navigation.navigate('Tab');
+    navigation.replace('Tab');
     console.log("Login clicked.");
   };
   return (

@@ -53,6 +53,8 @@ const App = () => {
 
 export default App;
 
+// export default App;
+
 // Add more screens for additional navigation if needed 
 // <Stack.Screen
 //   name="Settings"
@@ -60,3 +62,4 @@ export default App;
 //   options={{animation: 'slide_from_right'}}
 // />
 // <Stack.Screen name="HomeScreen" component={HomeScreen} />
+// <Stack.Screen name="DetectionScreen" component={DetectionScreen} options={{animation: 'default'}} />

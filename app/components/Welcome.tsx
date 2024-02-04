@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     alignItems: 'left',
     flexDirection: 'column',
     justifyContent: 'center',
-    marginBottom: 10,
+    marginVertical: 12,
     paddingHorizontal: 4,
   },
   welcomeText: {
