@@ -1,7 +1,9 @@
-import React  from 'react';
+import React, { useState }  from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { COLORS, FONTFAMILY } from '../theme/theme';
+import EditProfileModal from './EditProfileModal';
+import UserImage from '../assets/images/user.jpg';
 
 interface UserProfile {
     userName: string; 
@@ -19,19 +21,37 @@ interface ProfileAboutProps {
 }
 
 const ProfileAbout: React.FC<ProfileAboutProps> = ({ user }) => {
+    const [isModalVisible, setIsModalVisible] = useState(false);
+
+    const handleEditPress = () => {
+        setIsModalVisible(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalVisible(false);
+    };
+
+    const handleSaveChanges = () => {
+        setIsModalVisible(false);
+    };
 
     return (
         <View style={styles.container}>
             <View style={styles.profilePictureContainer}>
                 <Image
-                    source={{ uri: user.profilePicture }}
+                    source={UserImage}
                     style={styles.profilePicture}
                 />
                 <View style={styles.editButtonContainer}>
-                    <TouchableOpacity style={styles.editButton}>
+                    <TouchableOpacity onPress={handleEditPress} style={styles.editButton}>
                         <Icon name="edit" size={20} color={COLORS.SpecialText} />
                     </TouchableOpacity>
                 </View>
+                <EditProfileModal
+                visible={isModalVisible}
+                onClose={handleCloseModal}
+                onSave={handleSaveChanges}
+            />
             </View>
 
             <View style={styles.userInfoContainer}>
