@@ -150,8 +150,9 @@ const TabNavigator = () => {
     {isNewModalVisible && (
         <NewPostModal
           showNewPostModal={isNewModalVisible}
-          setShowNewPostModal={setIsNewModalVisible}
-        />
+          setShowNewPostModal={setIsNewModalVisible} 
+          titlePlaceholder="Enter title of your post"
+          contentPlaceholder="Enter content of your post"       />
       )}
     </>
   );
