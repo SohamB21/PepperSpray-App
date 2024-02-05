@@ -10,14 +10,14 @@ import BronzeAward from '../assets/badges/BronzeAward.png';
 
 const ProfileScreen = () => {
   const userProfile: UserProfile = {
-    userName: "Zendaya",
-    userId: "zendaya10",
-    userBio: "Zendaya Maree Stoermer Coleman is an American actress and singer.",
-    location: "California, US",
+    userName: "Sharmili",
+    userId: "sharmili10",
+    userBio: "A strong and independent woman.",
+    location: "Kolkata, India",
     joinedMonth: "May",
     joinedYear: "2023",
     verified: true,
-    profilePicture: "https://i.pinimg.com/originals/24/ca/51/24ca51edd82d5828340f6a87edbbb529.jpg",
+    profilePicture: "../assets/images/user.jpg",
   };
 
   const achievementsData = [
