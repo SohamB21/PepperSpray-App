@@ -4,15 +4,17 @@ import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import SocialButton from '../components/SocialButton';
 import { COLORS, FONTFAMILY } from '../theme/theme';
+import {AuthContext} from '../navigators/AuthProvider';
 
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const {user} = useContext(AuthContext);
+  const {login} = useContext(AuthContext);
 
   const handleLoginPress = () => {
-    // navigation.navigate('Tab');
-    navigation.replace('Tab');
     console.log("Login clicked.");
+    login();
   };
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -20,7 +22,8 @@ const LoginScreen = ({navigation}) => {
         source={require('../assets/images/PepSprayAppIcon-draft.png')}
         style={styles.logoImage}
       />
-      <Text style={styles.text}>Login To PepperSpray!</Text>
+      <Text style={styles.text}>Login To PepperSpray!{user}</Text>
+      <Text style={{ color: 'blue' }}>{user}</Text>
 
       <FormInput
         labelValue={email}

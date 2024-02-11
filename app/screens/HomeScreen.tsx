@@ -1,17 +1,17 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {View, Text, ScrollView, StyleSheet, TouchableOpacity} from 'react-native';
-// import { useNavigation } from '@react-navigation/native';
+
 import Header from '../components/Header';
 import SearchBar from '../components/SearchBar';
 import Welcome from '../components/Welcome';
 import Map from '../components/Map';
 import Trending from '../components/Trending';
-
+import {AuthContext} from '../navigators/AuthProvider';
 import {COLORS} from '../theme/theme';
 
 const HomeScreen = ({navigation}: any) => {
   const [userName, setUserName] = useState('Sharmili');
-  // const navigation = useNavigation();
+  const {user} = useContext(AuthContext);
 
   const posts = [
     {
@@ -65,6 +65,7 @@ const HomeScreen = ({navigation}: any) => {
           <SearchBar placeholder="Search places" />
         </TouchableOpacity>
         <Welcome user={userName} />
+        <Text style={{ color: 'blue' }}>{user}</Text>
         <Map fixedHeight={300} />
         <Trending posts={posts} />
         

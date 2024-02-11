@@ -55,9 +55,7 @@ const OnboardingScreen = ({ navigation }) => {
       DoneButtonComponent={Done}
       DotComponent={Dots}
       onSkip={() => navigation.navigate("Login")}
-      // onSkip={() => navigation.replace("Login")}
       onDone={() => navigation.navigate("Login")}
-      // onDone={() => navigation.replace("Login")}
       pages={[
         {
           backgroundColor: '#a6e4d0',
