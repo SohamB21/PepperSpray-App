@@ -65,7 +65,6 @@ const HomeScreen = ({navigation}: any) => {
           <SearchBar placeholder="Search places" />
         </TouchableOpacity>
         <Welcome user={userName} />
-        <Text style={{ color: 'blue' }}>{user}</Text>
         <Map fixedHeight={300} />
         <Trending posts={posts} />
         

@@ -14,7 +14,7 @@ const SignupScreen = ({navigation}) => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Image
-        source={require('../assets/images/PepSprayAppIcon-draft.png')}
+        source={require('../assets/images/PepSpray-Ico.png')}
         style={styles.logoImage}
       />
       <Text style={styles.text}>Welcome To PepperSpray!</Text>

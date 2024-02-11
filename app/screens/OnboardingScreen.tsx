@@ -59,21 +59,21 @@ const OnboardingScreen = ({ navigation }) => {
       pages={[
         {
           backgroundColor: '#a6e4d0',
-          image: <Image source={require('../assets/images/PepSprayAppIcon-draft.png')} 
+          image: <Image source={require('../assets/images/PepSpray-Ico.png')} 
           style={styles.onboardingImage} />,
           title: <Text style={styles.titleText}>Demo Title 1</Text>,
           subtitle: <Text style={styles.subtitleText}>Demo Subtitle 1</Text>,
         },
         {
           backgroundColor: '#fdeb93',
-          image: <Image source={require('../assets/images/PepSprayAppIcon-draft.png')} 
+          image: <Image source={require('../assets/images/PepSpray-Ico.png')} 
           style={styles.onboardingImage} />,
           title: <Text style={styles.titleText}>Demo Title 2</Text>,
           subtitle: <Text style={styles.subtitleText}>Demo Subtitle 2</Text>,
         },
         {
           backgroundColor: '#e9bcbe',
-          image: <Image source={require('../assets/images/PepSprayAppIcon-draft.png')} 
+          image: <Image source={require('../assets/images/PepSpray-Ico.png')} 
           style={styles.onboardingImage} />,
           title: <Text style={styles.titleText}>Demo Title 3</Text>,
           subtitle: <Text style={styles.subtitleText}>Demo Subtitle 3</Text>,

@@ -19,11 +19,10 @@ const LoginScreen = ({navigation}) => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Image
-        source={require('../assets/images/PepSprayAppIcon-draft.png')}
+        source={require('../assets/images/PepSpray-Ico.png')}
         style={styles.logoImage}
       />
-      <Text style={styles.text}>Login To PepperSpray!{user}</Text>
-      <Text style={{ color: 'blue' }}>{user}</Text>
+      <Text style={styles.text}>Login To PepperSpray!</Text>
 
       <FormInput
         labelValue={email}
