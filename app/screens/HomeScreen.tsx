@@ -13,7 +13,7 @@ const HomeScreen = ({navigation}: any) => {
   const [userName, setUserName] = useState('Sharmili');
   const {user} = useContext(AuthContext);
 
- const posts = [
+  const posts = [
     {
       id: 1,
       profilePicture:
@@ -83,7 +83,6 @@ const HomeScreen = ({navigation}: any) => {
       time: '3h',
       title: 'Experienced catcalling while jogging in the park. Not sure how to respond. Any suggestions on dealing with this? #StreetHarassment ',
     }
-    
   ];
 
   const handleSearchPress = () => {

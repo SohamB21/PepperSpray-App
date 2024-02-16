@@ -2,7 +2,7 @@ import React from 'react';
 import { Modal, View, Text, TouchableOpacity, StyleSheet, TextInput, Image, Linking } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { COLORS, FONTFAMILY } from '../theme/theme';
-import UserImage from '../assets/images/user.jpg'
+import userAnimated from '../assets/images/userAnimated.jpg';
 
 interface EditProfileModalProps {
     visible: boolean;
@@ -33,7 +33,7 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({ visible, onClose, o
                 <View style={styles.modalContent}>
                     <TouchableOpacity style={styles.imageContainer}>
                         <Image
-                            source={UserImage}
+                            source={userAnimated}
                             style={styles.profileImage}
                             blurRadius={10}
                         />
