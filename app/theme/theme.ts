@@ -16,6 +16,9 @@ export const COLORS: Color = {
   SpecialForegroundElement: '#91A8D0', // blue
   SpecialForegroundElement2: '#F7CAC9', // pink
   Background: '#F5F5F5', // off-white
+  OnboardingOne: '#84A6DF', // light blue
+  OnboardingTwo: '#FF7F7F', // light red
+  OnboardingThree: '#FFA756', // pale orange
 };
 
 // To add a new font family:

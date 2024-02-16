@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { COLORS, FONTFAMILY } from '../theme/theme';
 import EditProfileModal from './EditProfileModal';
-import UserImage from '../assets/images/user.jpg';
+import UserAnimated from '../assets/images/userAnimated.jpg';
 
 interface UserProfile {
     userName: string; 
@@ -39,7 +39,7 @@ const ProfileAbout: React.FC<ProfileAboutProps> = ({ user }) => {
         <View style={styles.container}>
             <View style={styles.profilePictureContainer}>
                 <Image
-                    source={UserImage}
+                    source={UserAnimated}
                     style={styles.profilePicture}
                 />
                 <View style={styles.editButtonContainer}>

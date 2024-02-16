@@ -12,29 +12,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const Stack = createNativeStackNavigator();
 
 const AuthStack = () => {
-	// const [isFirstLaunch, setIsFirstLaunch] = useState(null);
-	// let routeName;
-
-	// useEffect(() => {
-	// 	AsyncStorage.getItem('alreadyLaunched').then((value) => {
-	// 		if (value == null) {
-	// 			AsyncStorage.setItem('alreadyLaunched', 'true');
-	// 			setIsFirstLaunch(true);
-	// 		} else {
-	// 			setIsFirstLaunch(true); // false
-	// 		}
-	// 	});
-	// }, []);
-
-	// if(isFirstLaunch === null)
-	// 	return null;
-	// else if(isFirstLaunch == true)
-	// 	routeName = 'Onboarding';
-	// else
-	// 	routeName = 'Login';
-
-	// initialRouteName={routeName}
-
 	return (
 		<Stack.Navigator screenOptions={{ headerShown: false }} >
 			<Stack.Screen name="Onboarding" component={OnboardingScreen} />

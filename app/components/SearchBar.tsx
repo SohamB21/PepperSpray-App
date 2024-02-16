@@ -24,10 +24,10 @@ const SearchBar = ({placeholder}: {placeholder: string}) => {
 const styles = StyleSheet.create({
   inputBox: {
     flexDirection: 'row',
-    paddingHorizontal: 10,
+    paddingHorizontal: 6,
     borderWidth: 1,
-    borderColor: COLORS.PrimaryText,
     borderRadius: 12,
+    borderColor: COLORS.PrimaryText,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -36,12 +36,13 @@ const styles = StyleSheet.create({
     color: COLORS.SpecialForegroundElement,
   },
   textInput: {
-    borderColor: COLORS.PrimaryText,
     flex: 1,
     color: COLORS.PrimaryText,
-    paddingHorizontal: 6,
     fontFamily: FONTFAMILY.poppins_semibold,
+    fontSize: 16,
     alignItems: 'center',
+    borderColor: COLORS.PrimaryText,
+    height: 50,
   },
 });
 

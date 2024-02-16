@@ -2,13 +2,13 @@ import React from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
 import {windowHeight, windowWidth} from '../utils/Dimensions';
 import { COLORS, FONTFAMILY } from '../theme/theme';
-import Feather from 'react-native-vector-icons/Feather';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-const FormInput = ({labelValue, placeholderText, iconType, ...rest}) => {
+const FormInput = ({labelValue, placeholderText, iconType, maxLength, ...rest}) => {
   return (
     <View style={styles.inputContainer}>
       <View style={styles.iconStyle}>
-        <Feather name={iconType} size={26} color={COLORS.SpecialForegroundElement} />
+        <FontAwesome5 name={iconType} size={22} color={COLORS.SpecialText} />
       </View>
       <TextInput
         value={labelValue}
@@ -16,6 +16,7 @@ const FormInput = ({labelValue, placeholderText, iconType, ...rest}) => {
         numberOfLines={1}
         placeholder={placeholderText}
         placeholderTextColor={COLORS.SpecialForegroundElement}
+        maxLength={maxLength}
         {...rest}
       />
     </View>
@@ -26,12 +27,11 @@ export default FormInput;
 
 const styles = StyleSheet.create({
   inputContainer: {
-    marginTop: 5,
-    marginBottom: 10,
-    width: '100%',
+    marginVertical: 6,
+    width: '95%',
     height: windowHeight / 15,
     borderColor: COLORS.SpecialForegroundElement2,
-    borderRadius: 10,
+    borderRadius: 18,
     borderWidth: 1,
     flexDirection: 'row',
     alignItems: 'center',

@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import { View, Text, Modal, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState, useContext } from 'react';
+import { View, Text, Modal, StyleSheet, TouchableOpacity, ToastAndroid, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { COLORS, FONTFAMILY } from '../theme/theme';
+import { AuthContext } from '../navigators/AuthProvider';
+import ConfirmationModal from './ConfirmationModal';
 
 interface SettingsPopupProps {
   isVisible: boolean;
@@ -12,7 +14,9 @@ const SettingsPopup: React.FC<SettingsPopupProps> = ({ isVisible, onClose }) => 
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [dropdownVisible2, setDropdownVisible2] = useState(false);
   const [modalContentTop, setModalContentTop] = useState(140);
-  const [darkMode, setDarkMode] = useState(false); 
+  const [darkMode, setDarkMode] = useState(false);
+  const [confirmationModalVisible, setConfirmationModalVisible] = useState(false);
+  const { logout } = useContext(AuthContext);
 
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
@@ -28,11 +32,27 @@ const SettingsPopup: React.FC<SettingsPopupProps> = ({ isVisible, onClose }) => 
     setDarkMode(!darkMode);
   };
 
+  const handleLogout = () => {
+    // Open the confirmation modal
+    setConfirmationModalVisible(true);
+  };
+
+  const handleConfirmLogout = () => {
+    logout();
+    // Close the confirmation modal
+    setConfirmationModalVisible(false);
+  };
+
+  const handleHelp = () => {
+    ToastAndroid.show('Hi from the devs- Soham, Sharmili, Sannik, Parijat, Bijoy & Arnab!', ToastAndroid.LONG);
+  };
+
   return (
     <Modal animationType="fade" transparent={true} visible={isVisible} onRequestClose={() => onClose()}>
       <View style={styles.modalContainer}>
         <View style={styles.overlay} />
         <View style={[styles.modalContent, { top: modalContentTop }]}>
+
           <TouchableOpacity style={styles.modalItem} onPress={toggleDropdown}>
             <View style={styles.modalItemContent}>
               <Icon name="smartphone" size={26} color={COLORS.SpecialForegroundElement} />
@@ -77,7 +97,7 @@ const SettingsPopup: React.FC<SettingsPopupProps> = ({ isVisible, onClose }) => 
             </View>
           )}
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={handleLogout}>
             <View style={styles.modalItem}>
               <Icon name="user" size={26} color={COLORS.SpecialForegroundElement} />
               <View style={styles.textContainer}>
@@ -88,16 +108,27 @@ const SettingsPopup: React.FC<SettingsPopupProps> = ({ isVisible, onClose }) => 
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity>
-          <View style={styles.modalItem}>
-            <Icon name="help-circle" size={26} color={COLORS.SpecialForegroundElement} />
-            <View style={styles.textContainer}>
-              <Text style={styles.title}>Help</Text>
-              <Text style={styles.description}>More about PepperSpray.</Text>
+          <TouchableOpacity onPress={handleHelp}>
+            <View style={styles.modalItem}>
+              <Icon name="help-circle" size={26} color={COLORS.SpecialForegroundElement} />
+              <View style={styles.textContainer}>
+                <Text style={styles.title}>Help</Text>
+                <Text style={styles.description}>More about PepperSpray.</Text>
+              </View>
+              <Icon name="chevron-right" size={24} color={COLORS.SpecialForegroundElement} />
             </View>
-            <Icon name="chevron-right" size={24} color={COLORS.SpecialForegroundElement} />
-          </View>
           </TouchableOpacity>
+
+          <TouchableOpacity style={styles.closeButton} onPress={onClose}>
+            <Icon name="x-circle" size={35} color={COLORS.SpecialForegroundElement} />
+          </TouchableOpacity>
+
+          <ConfirmationModal
+            visible={confirmationModalVisible}
+            message="Are you sure you want to logout?"
+            onCancel={() => setConfirmationModalVisible(false)} onCancelText="Cancel"
+            onConfirm={handleConfirmLogout} onConfirmText="Confirm"
+          />
         </View>
       </View>
     </Modal>
@@ -107,7 +138,7 @@ const SettingsPopup: React.FC<SettingsPopupProps> = ({ isVisible, onClose }) => 
 const styles = StyleSheet.create({
   modalContainer: {
     flex: 1,
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
     alignItems: 'center',
   },
   overlay: {
@@ -118,18 +149,15 @@ const styles = StyleSheet.create({
   modalContent: {
     width: '90%',
     borderRadius: 12,
-    padding: 20,
-    paddingHorizontal: 20,
-    paddingBottom: 22,
-    paddingTop: 18,
+    padding: 16,
     position: 'absolute',
-    backgroundColor: COLORS.SecondaryText
+    backgroundColor: COLORS.SecondaryText,
   },
   modalItem: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 7,
+    paddingVertical: 6,
     paddingHorizontal: 2,
   },
   modalItemContent: {
@@ -141,25 +169,31 @@ const styles = StyleSheet.create({
     marginLeft: 12,
   },
   title: {
-    fontFamily: FONTFAMILY.poppins_medium, 
-    fontSize: 18,
     color: COLORS.SpecialText,
+    fontFamily: FONTFAMILY.poppins_medium,
+    fontSize: 18,
   },
   description: {
+    color: COLORS.PrimaryText,
     fontFamily: FONTFAMILY.poppins_regular,
     fontSize: 15,
-    color: COLORS.PrimaryText,
   },
   dropdownContent: {
     marginLeft: 40,
     marginTop: 10,
   },
   dropdowntitle: {
-    fontSize: 16,
-    fontFamily: FONTFAMILY.poppins_medium,
     color: COLORS.PrimaryText,
+    fontFamily: FONTFAMILY.poppins_medium,
+    fontSize: 16,
     marginBottom: 5,
-  }
+  },
+  closeButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'center', 
+    marginTop: 10,
+  },
 });
 
 export default SettingsPopup;

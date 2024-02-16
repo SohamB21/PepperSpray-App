@@ -1,8 +1,8 @@
 import React from 'react';
-import { Modal, View, Text, TouchableOpacity, StyleSheet, TextInput, Image } from 'react-native';
+import { Modal, View, Text, TouchableOpacity, StyleSheet, TextInput, Image, Linking } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { COLORS, FONTFAMILY } from '../theme/theme';
-import UserImage from '../assets/images/user.jpg'
+import userAnimated from '../assets/images/userAnimated.jpg';
 
 interface EditProfileModalProps {
     visible: boolean;
@@ -15,8 +15,12 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({ visible, onClose, o
     const titlePlaceholder2 = "Bio";
     const titlePlaceholder3 = "Location";
 
-    const handleUploadImage = () => {
-        console.log("Upload image functionality triggered");
+    const openFileManager = async () => {
+        try {
+            await Linking.openURL('https://drive.google.com/drive/u/0/my-drive');
+        } catch (error) {
+            console.error("An error occurred while opening the file manager:", error);
+        }
     };
 
     return (
@@ -27,38 +31,43 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({ visible, onClose, o
             onRequestClose={onClose}>
             <View style={styles.modalContainer}>
                 <View style={styles.modalContent}>
-                    <TouchableOpacity onPress={handleUploadImage} style={styles.imageContainer}>
+                    <TouchableOpacity style={styles.imageContainer}>
                         <Image
-                            source={UserImage}
+                            source={userAnimated}
                             style={styles.profileImage}
                             blurRadius={10}
                         />
                         <View style={styles.overlay}>
-                            <Icon name="edit" size={20} color={COLORS.PrimaryText} />
+                            <View style={styles.editButtonContainer}>
+                                <TouchableOpacity style={styles.editButton} onPress={openFileManager} >
+                                    <Icon name="edit" size={20} color={COLORS.SpecialText} />
+                                </TouchableOpacity>
+                            </View>
                         </View>
                     </TouchableOpacity>
                     <View style={styles.inputContainer}>
-                        <View style={styles.textInputContainer}>
-                            <TextInput
-                                style={styles.titleInput}
-                                placeholder={titlePlaceholder}
-                                placeholderTextColor={COLORS.SpecialText}
-                            />
-                        </View>
-                        <View style={styles.textInputContainer}>
-                            <TextInput
-                                style={styles.titleInput}
-                                placeholder={titlePlaceholder2}
-                                placeholderTextColor={COLORS.SpecialText}
-                            />
-                        </View>
-                        <View style={styles.textInputContainer}>
-                            <TextInput
-                                style={styles.titleInput}
-                                placeholder={titlePlaceholder3}
-                                placeholderTextColor={COLORS.SpecialText}
-                            />
-                        </View>
+                        <Text style={styles.inputLabel}>{titlePlaceholder}</Text>
+                        <TextInput
+                            style={styles.titleInput}
+                            placeholderTextColor={COLORS.SpecialText}
+                        />
+                        <View style={styles.underline}></View>
+                    </View>
+                    <View style={styles.inputContainer}>
+                        <Text style={styles.inputLabel}>{titlePlaceholder2}</Text>
+                        <TextInput
+                            style={styles.titleInput}
+                            placeholderTextColor={COLORS.SpecialText}
+                        />
+                        <View style={styles.underline}></View>
+                    </View>
+                    <View style={styles.inputContainer}>
+                        <Text style={styles.inputLabel}>{titlePlaceholder3}</Text>
+                        <TextInput
+                            style={styles.titleInput}
+                            placeholderTextColor={COLORS.SpecialText}
+                        />
+                        <View style={styles.underline}></View>
                     </View>
                     <TouchableOpacity onPress={onSave} style={styles.sendButton}>
                         <Icon name="save" size={30} color={COLORS.PrimaryText} />
@@ -83,7 +92,7 @@ const styles = StyleSheet.create({
         width: '80%',
         overflow: 'hidden',
         paddingTop: 20,
-        paddingBottom: 25
+        paddingBottom: 20
     },
     imageContainer: {
         position: 'relative',
@@ -99,35 +108,39 @@ const styles = StyleSheet.create({
     },
     overlay: {
         position: 'absolute',
-        top: '50%',
+        top: 0,
         left: 0,
         right: 0,
+        bottom: 0,
         alignItems: 'center',
         justifyContent: 'center',
     },
-    uploadText: {
-        color: COLORS.SecondaryText,
-        fontSize: 10,
-        fontFamily: FONTFAMILY.poppins_regular,
-    },
     inputContainer: {
-        paddingHorizontal: 20,
-        paddingBottom: 10,
+        paddingHorizontal: 16,
+        backgroundColor: COLORS.Background,
+        borderRadius: 10,
+        marginBottom: 10,
+        marginHorizontal: 20,
+        paddingTop: 6,
     },
-    textInputContainer: {
-        marginBottom: 8,
+    inputLabel: {
+        color: COLORS.SpecialText,
+        fontFamily: FONTFAMILY.poppins_regular,
     },
     titleInput: {
-        height: 50,
+        height: 32,
+        paddingHorizontal: 8,
+        paddingVertical: 6,
+        fontSize: 14,
         backgroundColor: COLORS.Background,
-        borderWidth: 2,
-        borderColor: COLORS.SpecialForegroundElement,
-        marginBottom: 10,
-        borderRadius: 6,
-        paddingBottom: 8,
-        paddingLeft: 10,
+        borderWidth: 0,
         color: COLORS.PrimaryText,
         fontFamily: FONTFAMILY.poppins_regular,
+    },
+    underline: {
+        borderBottomWidth: 2,
+        borderBottomColor: COLORS.SpecialForegroundElement,
+        marginBottom: 10
     },
     sendButton: {
         width: 50,
@@ -138,7 +151,19 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         alignSelf: 'center',
         marginBottom: 10
-    }
+    },
+    editButtonContainer: {
+        position: 'absolute',
+        top: '45%',
+        left: '50%',
+        transform: [{ translateX: -17 }, { translateY: -10 }],
+    },
+    editButton: {
+        backgroundColor: COLORS.SpecialForegroundElement,
+        padding: 8,
+        borderRadius: 20,
+    },
 });
+
 
 export default EditProfileModal;

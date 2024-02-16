@@ -58,22 +58,22 @@ const OnboardingScreen = ({ navigation }) => {
       onDone={() => navigation.navigate("Login")}
       pages={[
         {
-          backgroundColor: '#a6e4d0',
-          image: <Image source={require('../assets/images/PepSpray-Ico.png')} 
+          backgroundColor: COLORS.OnboardingOne,
+          image: <Image source={require('../assets/images/GirlWithPhone.jpg')} 
           style={styles.onboardingImage} />,
           title: <Text style={styles.titleText}>Demo Title 1</Text>,
           subtitle: <Text style={styles.subtitleText}>Demo Subtitle 1</Text>,
         },
         {
-          backgroundColor: '#fdeb93',
-          image: <Image source={require('../assets/images/PepSpray-Ico.png')} 
+          backgroundColor: COLORS.OnboardingTwo,
+          image: <Image source={require('../assets/images/DemoMap.jpg')} 
           style={styles.onboardingImage} />,
           title: <Text style={styles.titleText}>Demo Title 2</Text>,
           subtitle: <Text style={styles.subtitleText}>Demo Subtitle 2</Text>,
         },
         {
-          backgroundColor: '#e9bcbe',
-          image: <Image source={require('../assets/images/PepSpray-Ico.png')} 
+          backgroundColor: COLORS.OnboardingThree,
+          image: <Image source={require('../assets/images/WomenCommunity.jpg')} 
           style={styles.onboardingImage} />,
           title: <Text style={styles.titleText}>Demo Title 3</Text>,
           subtitle: <Text style={styles.subtitleText}>Demo Subtitle 3</Text>,
@@ -104,12 +104,18 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: 24, 
-    fontFamily: FONTFAMILY.poppins_semibold, 
-    color: COLORS.PrimaryText, 
+    color: COLORS.Background,
+    fontFamily: FONTFAMILY.poppins_bold,
+    textShadowColor: 'rgba(0, 0, 0, 0.75)', 
+    textShadowOffset: { width: 0.5, height: 0.5 }, 
+    textShadowRadius: 1, 
   },
   subtitleText: {
     fontSize: 14, 
-    fontFamily: FONTFAMILY.poppins_medium, 
+    fontFamily: FONTFAMILY.poppins_regular, 
     color: COLORS.PrimaryText, 
+    textShadowColor: 'rgba(0, 0, 0, 0.75)', 
+    textShadowOffset: { width: 0.5, height: 0.5 }, 
+    textShadowRadius: 1, 
   },
 });

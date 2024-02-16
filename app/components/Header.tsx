@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, useWindowDimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import SettingsPopup from './SettingsPopup'; 
 import { COLORS } from '../theme/theme';
+import {AuthContext} from '../navigators/AuthProvider';
 
 interface HeaderProps {
   screen: string;
@@ -13,6 +14,7 @@ const Header: React.FC<HeaderProps> = (props) => {
   const dimensions = useWindowDimensions();
   const isPortrait = dimensions.height > dimensions.width;
   const headerHeight = isPortrait ? '8%' : '14%';
+  const {logout} = useContext(AuthContext);
 
   const [isSettingsPopupVisible, setSettingsPopupVisible] = useState(false);
 
@@ -22,6 +24,11 @@ const Header: React.FC<HeaderProps> = (props) => {
 
   const closeSettingsPopup = () => {
     setSettingsPopupVisible(false);
+  };
+
+  const handleLogout = () => {
+    console.log("Logout button pressed.");
+    logout();
   };
 
   return (

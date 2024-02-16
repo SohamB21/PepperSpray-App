@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { View, Text, Modal, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { COLORS, FONTFAMILY } from '../theme/theme';
-import UserImage from '../assets/images/user.jpg';
+import userAnimated from '../assets/images/userAnimated.jpg';
 
 interface NewPostModalProps {
     showNewPostModal: boolean;
@@ -29,7 +29,7 @@ const NewPostModal: React.FC<NewPostModalProps> = ({ showNewPostModal, setShowNe
                 <View style={styles.modalContent}>
                     <View style={styles.titleContainer}>
                         <Image
-                            source={UserImage}
+                            source={userAnimated}
                             style={styles.profileImage}
                         />
                         <TextInput
@@ -79,8 +79,8 @@ const styles = StyleSheet.create({
     modalContent: {
         backgroundColor: COLORS.SpecialForegroundElement2,
         padding: 20,
-        borderRadius: 10,
-        width: '80%',
+        borderRadius: 12,
+        width: '90%',
     },
     titleContainer: {
         flexDirection: 'row',
@@ -106,6 +106,7 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         color: COLORS.PrimaryText,
         fontFamily: FONTFAMILY.poppins_regular,
+        fontSize: 16,
     },
     contentInput: {
         height: 150,
@@ -118,11 +119,12 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         color: COLORS.PrimaryText,
         fontFamily: FONTFAMILY.poppins_regular,
+        fontSize: 16,
     },
     actionButtons: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 10
+        marginBottom: 10,
     },
     actionButton: {
         flexDirection: 'row',
