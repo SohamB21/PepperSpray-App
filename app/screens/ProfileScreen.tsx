@@ -8,7 +8,6 @@ import GoldAward from '../assets/badges/GoldAward.png';
 import SilverAward from '../assets/badges/SilverAward.png';
 import BronzeAward from '../assets/badges/BronzeAward.png';
 import MyPost from '../components/MyPost';
-import userAnimated from '../assets/images/userAnimated.jpg';
 
 const ProfileScreen = () => {
   const userProfile: UserProfile = {
@@ -33,7 +32,7 @@ const ProfileScreen = () => {
   const posts = [
     {
       id: 1,
-      profilePicture: 'https://static.vecteezy.com/system/resources/previews/020/389/525/original/hand-drawing-cartoon-girl-cute-girl-drawing-for-profile-picture-vector.jpg',
+      profilePicture: "https://static.vecteezy.com/system/resources/previews/020/389/525/original/hand-drawing-cartoon-girl-cute-girl-drawing-for-profile-picture-vector.jpg",
       user: 'Sharmili',
       username: 'sharmili10',
       comments: 10,
