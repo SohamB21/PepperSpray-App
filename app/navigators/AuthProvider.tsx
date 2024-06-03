@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
 	      console.log("User already exists", response);
 	      ToastAndroid.show('An Account With This User Tag Already Exists. Try Another!', ToastAndroid.LONG);
 	    } else {
-	      console.error("Signup failed", response);
+	      console.log("Signup failed", response);
 	      ToastAndroid.show('Signup Failed!', ToastAndroid.SHORT);
 	    }
 	  })

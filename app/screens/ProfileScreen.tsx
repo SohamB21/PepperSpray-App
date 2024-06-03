@@ -39,7 +39,7 @@ const ProfileScreen = () => {
       comments: 10,
       downvotes: '10',
       upvotes: 10,
-      time: '1h',
+      time: '3h',
       title: 'Hey everyone.. thinking about publising an international petition on women safety! What are your thoughts about it? #lovetoall',
     },
     {
@@ -50,7 +50,7 @@ const ProfileScreen = () => {
       comments: 20,
       downvotes: '20',
       upvotes: 20,
-      time: '2h',
+      time: '10h',
       title: 'Glad to be an user here. More power to all fellow women!',
     },
   ];

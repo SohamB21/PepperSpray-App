@@ -59,24 +59,24 @@ const OnboardingScreen = ({ navigation }) => {
       pages={[
         {
           backgroundColor: COLORS.OnboardingOne,
-          image: <Image source={require('../assets/images/GirlWithPhone.jpg')} 
+          image: <Image source={require('../assets/images/Being_Alerted-01.webp')} 
           style={styles.onboardingImage} />,
-          title: <Text style={styles.titleText}>Demo Title 1</Text>,
-          subtitle: <Text style={styles.subtitleText}>Demo Subtitle 1</Text>,
+          title: <Text style={styles.titleText}>Stay Alerted</Text>,
+          subtitle: <Text style={styles.subtitleText}>Safety At Your Fingertips.</Text>,
         },
         {
           backgroundColor: COLORS.OnboardingTwo,
           image: <Image source={require('../assets/images/DemoMap.jpg')} 
           style={styles.onboardingImage} />,
-          title: <Text style={styles.titleText}>Demo Title 2</Text>,
-          subtitle: <Text style={styles.subtitleText}>Demo Subtitle 2</Text>,
+          title: <Text style={styles.titleText}>Navigate Safely</Text>,
+          subtitle: <Text style={styles.subtitleText}>Empowering Women With Connectivity And Location Awareness.</Text>,
         },
         {
           backgroundColor: COLORS.OnboardingThree,
-          image: <Image source={require('../assets/images/WomenCommunity.jpg')} 
+          image: <Image source={require('../assets/images/Community_To_Rely-01.webp')} 
           style={styles.onboardingImage} />,
-          title: <Text style={styles.titleText}>Demo Title 3</Text>,
-          subtitle: <Text style={styles.subtitleText}>Demo Subtitle 3</Text>,
+          title: <Text style={styles.titleText}>Community To Trust</Text>,
+          subtitle: <Text style={styles.subtitleText}>Building Bonds For A Safer Tomorrow.</Text>,
         },
       ]}
     />
@@ -97,25 +97,27 @@ const styles = StyleSheet.create({
     color: COLORS.SpecialText,
   },
   onboardingImage: {
-    width: 250,
-    height: 250,
+    width: 280,
+    height: 280,
     resizeMode: 'contain',
-    borderRadius: 125,
+    borderRadius: 120,
   },
   titleText: {
-    fontSize: 24, 
+    fontSize: 28, 
     color: COLORS.Background,
     fontFamily: FONTFAMILY.poppins_bold,
     textShadowColor: 'rgba(0, 0, 0, 0.75)', 
     textShadowOffset: { width: 0.5, height: 0.5 }, 
-    textShadowRadius: 1, 
+    textShadowRadius: 5, 
   },
   subtitleText: {
-    fontSize: 14, 
-    fontFamily: FONTFAMILY.poppins_regular, 
-    color: COLORS.PrimaryText, 
+    fontSize: 16, 
+    color: COLORS.Background, 
+    fontFamily: FONTFAMILY.poppins_bolditalic, 
     textShadowColor: 'rgba(0, 0, 0, 0.75)', 
     textShadowOffset: { width: 0.5, height: 0.5 }, 
     textShadowRadius: 1, 
+    textAlign: 'center',
+    padding: 10,
   },
 });

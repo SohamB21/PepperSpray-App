@@ -158,8 +158,8 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 15,
-    paddingTop: 40,
+    padding: 20,
+    paddingTop: 60,
     backgroundColor: COLORS.SpecialForegroundElement2,
   },
   logoImage: {
@@ -172,13 +172,13 @@ const styles = StyleSheet.create({
     color: COLORS.SpecialText,
     fontFamily: FONTFAMILY.poppins_semibold,
     fontSize: 20,
-    marginVertical: 20,
+    marginVertical: 30,
     textShadowColor: 'rgba(0, 0, 0, 0.75)', 
     textShadowOffset: { width: 0.5, height: 0.5 }, 
     textShadowRadius: 1, 
   },
   underlinedButtonWrapper: {
-    marginVertical: 20,
+    marginVertical: 30,
   },
   navButtonText: {
     fontSize: 15,
