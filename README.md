@@ -1,5 +1,6 @@
 # App Preview
-![Untitled design]
+![PepperSpray Overview](https://github.com/SohamB21/PepperSpray-App/assets/105418470/8f078e20-1190-4740-b6ff-dfa19095eaf9)
+
 
 ## Watch a Video Preview of PepperSpray in action:
 
